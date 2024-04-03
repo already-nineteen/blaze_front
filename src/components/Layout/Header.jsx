@@ -2,11 +2,11 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="bg-gray-800 text-white p-4 flex items-center space-x-8">
+    <header className="fixed top-0 w-full bg-gray-800 text-white p-6 flex items-center space-x-8">
       <div className="logo">
-        <a href="/" className="text-xl font-bold">
-          <span className="space-x-1">⚠️</span>
-          FILL
+        <a href="/" className="text-xl font-bold space-x-2">
+          <span>⚠️</span>
+          <span>FILL</span>
         </a>
       </div>
       <nav>
