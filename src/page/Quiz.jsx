@@ -27,7 +27,7 @@ const Quiz = () => {
         {showScore ? (
           <div className="score-section text-lg font-semibold">
             당신의 점수는 <span className="text-green-500">{score}</span>점
-            입니다! 총 {quizData.length}문제 중.
+            입니다!
           </div>
         ) : (
           <>
