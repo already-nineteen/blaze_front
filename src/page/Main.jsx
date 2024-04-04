@@ -14,7 +14,7 @@ const Main = () => {
         </div>
         <div className="space-x-4">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            화재 정보에 대해 묻기
+            <a href="/chat">화재 정보에 대해 묻기</a>
           </button>
           <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
             <a href="/quiz">소방 관련 퀴즈 풀어보기</a>
