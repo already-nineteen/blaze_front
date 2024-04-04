@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout";
 const Main = () => {
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div className="flex h-[90.8vh] flex-col items-center justify-center bg-green-800">
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold">환영합니다!</h1>
           <p>
@@ -14,7 +14,7 @@ const Main = () => {
         </div>
         <div className="space-x-4">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            화재 정보에 대해 묻기
+            <a href="/chat">화재 정보에 대해 묻기</a>
           </button>
           <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
             소방 관련 퀴즈 풀어보기
