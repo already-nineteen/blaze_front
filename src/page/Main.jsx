@@ -17,7 +17,7 @@ const Main = () => {
             화재 정보에 대해 묻기
           </button>
           <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-            소방 관련 퀴즈 풀어보기
+            <a href="/quiz">소방 관련 퀴즈 풀어보기</a>
           </button>
         </div>
       </div>
