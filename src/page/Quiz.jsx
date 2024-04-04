@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout/Layout";
-
 import quizData from "../mocks/quizData.json";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  // 체크박스 상태를 관리하기 위한 상태 추가
+  const [checkedState, setCheckedState] = useState(false);
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
     }
+
+    // 체크박스 상태 초기화
+    setCheckedState(false);
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < quizData.length) {
@@ -28,14 +32,6 @@ const Quiz = () => {
           <div className="score-section text-lg font-semibold">
             당신의 점수는 <span className="text-green-500">{score}</span>점
             입니다!
-            <div className="mt-4 text-sm">
-              <button
-                onClick={() => window.location.reload()}
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow"
-              >
-                다시 플레이
-              </button>
-            </div>
           </div>
         ) : (
           <div className="question-section mb-8 w-96 flex flex-col gap-8">
@@ -54,6 +50,7 @@ const Quiz = () => {
                   <input
                     type="checkbox"
                     className="appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-500 checked:border-transparent focus:outline-none"
+                    checked={checkedState}
                     onChange={() =>
                       handleAnswerOptionClick(
                         option === quizData[currentQuestion].answer
