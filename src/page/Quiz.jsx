@@ -30,24 +30,26 @@ const Quiz = () => {
 
   return (
     <Layout>
-      <div className="pt-40 px-4 h-[90.2vh] flex flex-col items-center bg-gray-100 text-gray-800">
+      <div className="h-full flex flex-col items-center bg-gray-100 text-gray-800">
         {showScore ? (
-          <div className="flex flex-col space-y-4">
-            <div className="score-section text-lg font-semibold mb-8">
+          <div className="flex flex-col items-center justify-center h-full">
+            <div className="score-section text-lg font-semibold">
               점수는요..
-              <p className="text-7xl mb-8">
-                <span className="text-green-500 mb-1">{score}</span>점
+              <p className="text-7xl">
+                <span className="text-green-500">{score}</span>점
               </p>
             </div>
             <CopyToClipboard
               text={link}
               onCopy={() => alert("링크가 클립보드에 복사되었습니다!")}
             >
-              <button className="mt-4">링크 복사</button>
+              <button className="mt-4 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                공유하기
+              </button>
             </CopyToClipboard>
           </div>
         ) : (
-          <div className="question-section mb-8 w-96 flex flex-col gap-8">
+          <div className="question-section pt-40 px-4 mb-8 w-96 flex flex-col gap-8">
             <div className="question-count mb-2">
               <span className="text-xl font-bold">
                 문항 {currentQuestion + 1}
