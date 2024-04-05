@@ -3,7 +3,7 @@ import Layout from "../components/Layout/Layout";
 const Main = () => {
   return (
     <Layout>
-      <div className="flex h-[90.8vh] flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
         <div className="mb-8 text-center">
           <h1 className="text-2xl font-bold">환영합니다!</h1>
           <p>

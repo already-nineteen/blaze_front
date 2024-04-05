@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout/Layout";
 import quizData from "../mocks/quizData.json";
+import CopyToClipboard from "react-copy-to-clipboard";
+
+const link = "http://localhost:3000/quiz";
 
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -27,11 +30,21 @@ const Quiz = () => {
 
   return (
     <Layout>
-      <div className="pt-40 px-4 min-h-screen flex flex-col items-center bg-gray-100 text-gray-800">
+      <div className="pt-40 px-4 h-[90.2vh] flex flex-col items-center bg-gray-100 text-gray-800">
         {showScore ? (
-          <div className="score-section text-lg font-semibold">
-            당신의 점수는 <span className="text-green-500">{score}</span>점
-            입니다!
+          <div className="flex flex-col space-y-4">
+            <div className="score-section text-lg font-semibold mb-8">
+              점수는요..
+              <p className="text-7xl mb-8">
+                <span className="text-green-500 mb-1">{score}</span>점
+              </p>
+            </div>
+            <CopyToClipboard
+              text={link}
+              onCopy={() => alert("링크가 클립보드에 복사되었습니다!")}
+            >
+              <button className="mt-4">링크 복사</button>
+            </CopyToClipboard>
           </div>
         ) : (
           <div className="question-section mb-8 w-96 flex flex-col gap-8">
