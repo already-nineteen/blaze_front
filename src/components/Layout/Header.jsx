@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 w-full bg-gray-800 text-white p-6 flex items-center space-x-8">
+    <header className="fixed top-0 w-full bg-black text-white p-6 flex items-center space-x-8">
       <div className="logo">
         <a href="/" className="text-xl font-bold space-x-2">
           <span>⚠️</span>
