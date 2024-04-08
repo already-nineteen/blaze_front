@@ -6,6 +6,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 const link = "http://localhost:3000/quiz";
 
 const Quiz = () => {
+  const [quizStarted, setQuizStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
@@ -30,8 +31,31 @@ const Quiz = () => {
 
   return (
     <Layout>
-      <div className="h-full flex flex-col items-center bg-gray-100 text-gray-800">
-        {showScore ? (
+      <div className="h-full flex flex-col items-center text-gray-800">
+        {!quizStarted ? (
+          <div className="flex flex-col items-center justify-center h-full">
+            <div className="flex space-x-8 mb-8 bg-blue-800 ">
+              <p className="text-2xl font-semibold mb-4 b-4 bg-yellow-800">
+                QUIZ!
+              </p>
+              <div className="flex flex-col space-y-8 mb-8 bg-blue-800 ">
+                <span className="text-lg font-semibold">
+                  #화재_시_대처법 #소화기_사용법 #돌발_상황
+                </span>
+                <span className="text-lg font-semibold">
+                  일상에서 꼭 필요한 소방 안전 지식! 얼마나 알고 있는지 퀴즈를
+                  풀어 봐요.
+                </span>
+              </div>
+            </div>
+            <button
+              className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+              onClick={() => setQuizStarted(true)}
+            >
+              퀴즈 풀러가기
+            </button>
+          </div>
+        ) : showScore ? (
           <div className="flex flex-col items-center justify-center h-full">
             <div className="score-section text-lg font-semibold">
               점수는요..
