@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout/Layout";
 import QuizIntro from "../components/Quiz/QuizIntro";
-
 import quizData from "../mocks/quizData.json";
-import CopyToClipboard from "react-copy-to-clipboard";
 import ScoreSection from "../components/Quiz/ScoreSection";
-
-const link = "히히 구라지롱";
+import QuestionSection from "../components/Quiz/QuestionSection";
 
 const Quiz = () => {
   const [quizStarted, setQuizStarted] = useState(false);
@@ -15,7 +12,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [checkedState, setCheckedState] = useState(
-    new Array(quizData[currentQuestion].options.length).fill(false)
+    new Array(quizData[0].options.length).fill(false)
   );
 
   const handleAnswerOptionClick = () => {
@@ -32,9 +29,6 @@ const Quiz = () => {
       }
     }
 
-    setCheckedState(
-      new Array(quizData[currentQuestion].options.length).fill(false)
-    );
     setShowAnswer(false);
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < quizData.length) {
@@ -54,6 +48,7 @@ const Quiz = () => {
 
     setCheckedState(updatedCheckedState);
   };
+
   return (
     <Layout>
       <div className="h-full flex flex-col items-center text-gray-800">
@@ -62,60 +57,16 @@ const Quiz = () => {
         ) : showScore ? (
           <ScoreSection score={score} totalQuestions={quizData.length} />
         ) : (
-          <div className="question-section pt-40 px-4 mb-8 w-96 flex flex-col gap-8">
-            <div className="question-count mb-2">
-              <span className="text-xl font-bold">
-                문항 {currentQuestion + 1}
-              </span>
-              /{quizData.length}
-            </div>
-            <div className="question-text text-lg font-medium">
-              {quizData[currentQuestion].question}
-            </div>
-            <div className="answer-section">
-              {quizData[currentQuestion].options.map((option, index) => (
-                <div key={index} className="flex items-center my-2">
-                  <input
-                    type="checkbox"
-                    className="appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-500 checked:border-transparent focus:outline-none"
-                    checked={checkedState}
-                    onChange={() =>
-                      handleAnswerOptionClick(
-                        option === quizData[currentQuestion].answer
-                      )
-                    }
-                  />
-                  <label className="ml-2 text-md font-medium">{option}</label>
-                </div>
-              ))}
-            </div>
-            {showAnswer && (
-              <div className="text-green-500 font-bold">
-                정답: {quizData[currentQuestion].answer}
-              </div>
-            )}
-            <div className="flex justify-between">
-              <button
-                disabled={currentQuestion === 0}
-                onClick={() => setCurrentQuestion(currentQuestion - 1)}
-                className="bg-blue-500 text-white font-bold py-2 px-4 rounded  hover:bg-blue-700 disabled:opacity-50"
-              >
-                이전
-              </button>
-              <button
-                onClick={() => setShowAnswer(true)}
-                className="bg-yellow-500 text-white font-bold py-2 px-4 rounded hover:bg-yellow-600"
-              >
-                정답 보기
-              </button>
-              <button
-                onClick={() => handleAnswerOptionClick()}
-                className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700"
-              >
-                다음
-              </button>
-            </div>
-          </div>
+          <QuestionSection
+            currentQuestion={currentQuestion}
+            quizData={quizData}
+            checkedState={checkedState}
+            handleCheckboxChange={handleCheckboxChange}
+            showAnswer={showAnswer}
+            setShowAnswer={setShowAnswer}
+            setCurrentQuestion={setCurrentQuestion}
+            handleAnswerOptionClick={handleAnswerOptionClick}
+          />
         )}
       </div>
     </Layout>
