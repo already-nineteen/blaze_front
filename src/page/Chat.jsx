@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Header from "../components/Layout/Header";
 import { FaSpinner } from "react-icons/fa";
+import styled from "styled-components";
 
 const REACT_APP_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
@@ -48,7 +49,7 @@ const Chat = () => {
   return (
     <div>
       <Header />
-      <div className="box-border pt-20 px-4 h-[90.8vh] flex flex-col justify-between">
+      <ChatArea>
         <div className="overflow-auto">
           {messages.map((message) => (
             <div key={message.id} className={`message ${message.sender}`}>
@@ -74,9 +75,35 @@ const Chat = () => {
             <FaSpinner className="animate-spin" />
           </div>
         )}
-      </div>
+      </ChatArea>
+      <ArchiveArea>
+          <ArchiveTitle>소방 지식 아카이브</ArchiveTitle>
+          아직 아카이브에 저장된 지식이 없어요. <br />
+          챗봇과의 대화가 유익했다면 아카이브에 저장해 보세요!
+      </ArchiveArea>
     </div>
   );
 };
 
 export default Chat;
+
+const ChatPageBox = styled.div`
+  width: 100%;
+  padding: 73px 104px;
+`;
+
+const ChatArea = styled.div`
+
+`;
+
+const ArchiveArea = styled.div`
+
+`;
+
+const Title = styled.p`
+
+`;
+
+const ArchiveTitle = styled(Title)`
+
+`;
