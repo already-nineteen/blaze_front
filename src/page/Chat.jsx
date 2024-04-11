@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Header from "../components/Layout/Header";
+import Layout from "../components/Layout/Layout";
 import { FaSpinner } from "react-icons/fa";
 import styled from "styled-components";
 
+// 환경 변수에서 API 키를 가져옵니다.
 const REACT_APP_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
+// ChatGPT API로부터 응답을 가져오는 함수입니다.
 const fetchChatGPTResponse = async (userMessage) => {
   try {
     const response = await axios.post(
@@ -30,7 +32,7 @@ const fetchChatGPTResponse = async (userMessage) => {
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState("");
-  const [loading, setLoading] = useState(false); // 로딩 상태 추가
+  const [loading, setLoading] = useState(false);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -47,17 +49,16 @@ const Chat = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <ChatArea>
-        <div className="overflow-auto">
+    <Layout>
+      <div className="flex flex-col h-full w-full">
+         <div className="messages mt-20">
           {messages.map((message) => (
             <div key={message.id} className={`message ${message.sender}`}>
               {message.text}
             </div>
           ))}
         </div>
-        <form onSubmit={sendMessage} className="mt-4">
+        <form onSubmit={sendMessage} className="message-form">
           <input
             type="text"
             value={inputText}
@@ -66,7 +67,7 @@ const Chat = () => {
             placeholder="메시지 입력..."
             disabled={loading}
           />
-          <button type="submit" className="button" disabled={loading}>
+          <button type="submit" className="send-button" disabled={loading}>
             {loading ? <FaSpinner className="animate-spin" /> : "전송"}
           </button>
         </form>
@@ -74,26 +75,34 @@ const Chat = () => {
           <div className="loading">
             <FaSpinner className="animate-spin" />
           </div>
-        )}
-      </ChatArea>
-      <ArchiveArea>
-          <ArchiveTitle>소방 지식 아카이브</ArchiveTitle>
-          아직 아카이브에 저장된 지식이 없어요. <br />
-          챗봇과의 대화가 유익했다면 아카이브에 저장해 보세요!
-      </ArchiveArea>
-    </div>
+        )} 
+      </div>
+    </Layout>
   );
 };
 
 export default Chat;
 
-const ChatPageBox = styled.div`
-  width: 100%;
-  padding: 73px 104px;
+// 추가로 필요한 스타일드 컴포넌트를 정의할 수 있습니다.
+// 예를 들어, 채팅 메시지 및 입력 폼에 대한 스타일을 추가할 수 있습니다.
+
+
+const Img = styled.img`
+
 `;
 
-const ChatArea = styled.div`
+const P = styled.p`
+  font-family: 'PretendardLegular';
+  font-size: 16px;
+`;
 
+const BoldP = styled(P)`
+  font-family: 'PretendardSemiBold';
+  font-size: 18px;
+`;
+
+const ChatContainer = styled.div`
+  background-color: red;
 `;
 
 const ArchiveArea = styled.div`

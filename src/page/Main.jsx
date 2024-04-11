@@ -7,28 +7,34 @@ const Main = () => {
   return (
     <Layout>
       <MainContainer>
-      <div className="flex flex-col items-center justify-center h-full">
-        <Row>
-          <div>
-            <Img src={mainIntroImg} />
-          </div>
-          <div>
-            <div className="mb-8 text-center">
-              <P><HighLight>화재</HighLight>, 일상 중 언제든 일어날 수 있습니다.</P>
+        <div className="flex flex-col items-center justify-center h-full">
+          <Row>
+            <div>
+              <Img src={mainIntroImg} />
             </div>
-            <div className="space-x-4">
-              <P>이름과 함께 화재에 대한 지식을 습득하고 <br />
-              대처 상황을 경험해 보며 훈련해 봐요.</P>
-            </div>
-          </div>
-        </Row>
-      </div>
+            <Col>
+              <div className="mb-8 text-center">
+                <P><HighLight>화재</HighLight>, 일상 중 언제든 일어날 수 있습니다.</P>
+              </div>
+              <div className="space-x-4">
+                <P>BLAZE와 함께 화재에 대한 지식을 습득하고 <br />
+                대처 상황을 경험해 보며 훈련해 봐요.</P>
+              </div>
+            </Col>
+          </Row>
+        </div>
       </MainContainer>
     </Layout>
   );
 };
 
 export default Main;
+
+const MainContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,254,247,1) 100%);
+`;
 
 const Img = styled.img`
   
@@ -51,8 +57,9 @@ const Row = styled.div`
   gap: 80px;
 `;
 
-const MainContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,254,247,1) 100%);
-`;
+const Col = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+`

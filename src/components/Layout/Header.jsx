@@ -5,7 +5,7 @@ const Header = () => {
     <header className="fixed top-0 w-full p-6 flex items-center space-x-8 border-b-2 border-gray-200 bg-white">
       <div className="logo">
         <a href="/" className="text-xl font-bold space-x-2 ml-6">
-          FILL
+          BLAZE
         </a>
       </div>
       <nav>
