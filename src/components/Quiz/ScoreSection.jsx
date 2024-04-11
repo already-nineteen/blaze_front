@@ -18,7 +18,7 @@ const ScoreSection = ({ score, totalQuestions }) => {
         </p>
         <div className="flex justify-end w-96">
           <Link to={"/"}>
-            <button className="text-base mt-4 text-gray-300 bg-gray-100 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">
+            <button className="text-base mt-4 text-gray-300 bg-gray-100 hover:bg-gray-700 font-bold py-2 px-4 rounded-lg">
               처음으로 돌아가기
             </button>
           </Link>
