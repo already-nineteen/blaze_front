@@ -28,14 +28,31 @@ const QuestionSection = ({
       </div>
       <div className="answer-section w-full box-border px-16 mb-10">
         {quizData[currentQuestion].options.map((option, index) => (
-          <div key={index} className="flex items-center my-2">
-            <input
-              type="checkbox"
-              className="form-checkbox appearance-none h-6 w-6 border bg-gray-300 rounded-full"
-              checked={checkedState[index]}
-              onChange={() => handleCheckboxChange(index)}
-            />
-            <label className="ml-2 text-md font-medium text-gray-300">
+          <div className="flex items-center my-2 gap-3" key={index}>
+            <label className="relative form-checkbox h-6 w-6">
+              <input
+                type="checkbox"
+                className="sr-only"
+                checked={checkedState[index]}
+                onChange={() => handleCheckboxChange(index)}
+              />
+              <div
+                className={`checkbox-bg bg-gray-100 rounded-full w-full h-full flex items-center justify-center ${
+                  checkedState[index] ? "bg-[#FFE606]" : ""
+                }`}
+              >
+                {checkedState[index] ? (
+                  <img src="assets/ci_check_y.svg" />
+                ) : (
+                  <img src="assets/ci_check_g.svg" />
+                )}
+              </div>
+            </label>
+            <label
+              className={`className="ml-2 text-md font-medium text-gray-300 ${
+                checkedState[index] ? "text-[#FFE606]" : ""
+              }`}
+            >
               {option}
             </label>
           </div>
@@ -46,6 +63,7 @@ const QuestionSection = ({
           </div>
         )}
       </div>
+
       <div className="w-full flex justify-between items-center text-gray-300 ">
         <button
           disabled={currentQuestion === 0}
@@ -57,7 +75,9 @@ const QuestionSection = ({
         </button>
         <button
           onClick={() => setShowAnswer(true)}
-          className="py-2 px-4 rounded hover:bg-gray-100"
+          className={`py-2 px-4 rounded hover:bg-gray-100 ${
+            showAnswer ? "text-[#FFE606]" : ""
+          }`}
         >
           정답 보기
         </button>
