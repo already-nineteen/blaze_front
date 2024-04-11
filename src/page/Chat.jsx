@@ -79,8 +79,8 @@ const Chat = () => {
             style={{ maxHeight: "calc(100vh - 20rem)" }}
           >
             <div className="flex w-full flex-col gap-16">
-              {messages.map((msg) => (
-                <div className="flex gap-4 w-full">
+              {messages.map((msg, index) => (
+                <div className="flex gap-4 w-full" key={index}>
                   <img
                     src={msg.sender === "user" ? UserImg : BotImg}
                     alt={msg.sender === "user" ? "User" : "Chatbot"}
