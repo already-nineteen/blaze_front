@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ChatPage from "./page/Chat";
-import QuizPage from "./page/Quiz";
-import MainPage from "./page/Main";
+import ChatPage from "./pages/Chat";
+import QuizPage from "./pages/Quiz";
+import MainPage from "./pages/Main";
 import "./index.css";
-import SimulationPage from "./page/Simulation";
+import SimulationPage from "./pages/Simulation";
 function App() {
   return (
     <Router>
