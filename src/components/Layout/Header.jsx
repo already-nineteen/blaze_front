@@ -11,17 +11,17 @@ const Header = () => {
       <nav>
         <ul className="flex space-x-8">
           <li>
-            <a href="/chat" className="hover:text-gray-300">
+            <a href="/chat" className="hover:text-gray-300 transition duration-200 ease">
               💬 채팅
             </a>
           </li>
           <li>
-            <a href="/quiz" className="hover:text-gray-300">
+            <a href="/quiz" className="hover:text-gray-300 transition duration-200 ease">
               ✏️ 퀴즈
             </a>
           </li>
           <li>
-            <a href="/simulation" className="hover:text-gray-300">
+            <a href="/simulation" className="hover:text-gray-300 transition duration-200 ease">
               🧯 시뮬레이션
             </a>
           </li>

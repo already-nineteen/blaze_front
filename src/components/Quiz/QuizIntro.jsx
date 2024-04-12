@@ -3,7 +3,7 @@ import React from "react";
 const QuizIntro = ({ onStart }) => {
   return (
     <div className="flex flex-col items-center justify-center h-full w-[38%]">
-      <div className="flex space-x-8 mb-24 h-24">
+      <div className="flex space-x-8 mb-12 h-24">
         <span
           className="flex items-center text-3xl font-semibold px-10"
           style={{
@@ -19,7 +19,7 @@ const QuizIntro = ({ onStart }) => {
           QUIZ!
         </span>
         <div className="flex flex-col mb-8 h-full">
-          <span className="text-lg text-gray-200 font-semibold">
+          <span className="text-lg text-gray-200">
             #화재_시_대처법 #소화기_사용법 #돌발_상황
           </span>
           <span className="text-2xl font-semibold">
