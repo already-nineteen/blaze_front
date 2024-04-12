@@ -70,7 +70,7 @@ const QuestionSection = ({
           onClick={() => setCurrentQuestion(currentQuestion - 1)}
           className="flex gap-1 py-2 px-4 rounded hover:bg-gray-100"
         >
-          <img src="assets/<-.svg" />
+          <img src="assets/arrow.svg" />
           이전
         </button>
         <button
@@ -86,7 +86,7 @@ const QuestionSection = ({
           className="flex gap-1 py-2 px-4 rounded hover:bg-gray-100"
         >
           다음
-          <img className="rotate-180" src="assets/<-.svg" />
+          <img className="rotate-180" src="assets/arrow.svg" />
         </button>
       </div>
     </div>
