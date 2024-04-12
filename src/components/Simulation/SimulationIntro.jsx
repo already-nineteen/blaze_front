@@ -17,13 +17,13 @@ const SimulationIntro = ({ onStart }) => {
             시뮬레이션 하러 가기
           </button>
         </div>
-        <div className="flex flex-col mb-8 w-90">
+        {/* <div className="flex flex-col mb-8 w-90">
           <h2 className="mb-2 font-bold text-lg">폰으로도 할 수 있어요!</h2>
           <p className="text-base">
             QR코드를 카메라로 인식해 파일을 실행시켜 보세요.
           </p>
           <div className="mt-8 bg-gray-300 w-32 h-32">qrcode쓰</div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
