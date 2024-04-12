@@ -7,28 +7,32 @@ import axios from "axios";
 
 const REACT_APP_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 
-const fetchChatGPTResponse = async (userMessage) => {
+const fetchChatGPTResponse = async (userInput) => {
   try {
-    console.log(REACT_APP_API_KEY);
     const response = await axios.post(
-      "https://api.openai.com/v1/engines/davinci/completions",
+      "https://api.openai.com/v1/chat/completions",
       {
-        prompt: userMessage,
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: userInput,
+          },
+        ],
         max_tokens: 50,
       },
       {
         headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${REACT_APP_API_KEY}`,
         },
       }
     );
-    return response.data.choices[0].text.trim();
+    console.log(response.data.choices[0].message.content);
+    return response.data.choices[0].message.content;
   } catch (error) {
-    console.error(
-      "ChatGPT Error:",
-      error.response ? error.response.data : error
-    );
-    return "죄송해요, 답변을 가져오는 데 문제가 있었어요. 😢";
+    console.error("Error:", error.response ? error.response.data : error);
+    return "Error fetching response from OpenAI.";
   }
 };
 
