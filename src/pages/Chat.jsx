@@ -57,6 +57,10 @@ const Chat = () => {
     setIsStarted(true);
   };
 
+  const handleButtonClick = (text) => {
+    setInputText(text);
+  };
+
   const handleInputChange = (e) => {
     setInputText(e.target.value);
   };
@@ -74,7 +78,8 @@ const Chat = () => {
     setInputText("");
     setLoading(true);
 
-    const chatGPTResponse = await fetchChatGPTResponse(inputText);
+    // const chatGPTResponse = await fetchChatGPTResponse(inputText);
+    const chatGPTResponse = "일단 임시지만 넣기.. 돈이 아까운걸";
     const botMessage = { id: Date.now(), text: chatGPTResponse, sender: "bot" };
     setMessages((messages) => [...messages, botMessage]);
     setLoading(false);
@@ -87,8 +92,8 @@ const Chat = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center h-full box-border pt-24">
-        <div className="w-2/3 h-full flex flex-col justify-between">
+      <div className="flex items-center justify-center h-full box-border pt-36 gap-8">
+        <div className="w-1/2 h-full flex flex-col justify-between bg-red-100">
           <div
             className="w-full flex flex-col overflow-y-auto scrollbar-hide"
             style={{ maxHeight: "calc(100vh - 20rem)" }}
@@ -115,7 +120,7 @@ const Chat = () => {
             </div>
           </div>
           <div className="fixed bottom-0 w-full">
-            <div className="relative mb-10 w-2/3 items-center justify-center min-w-[600px]">
+            <div className="relative mb-10 w-1/2 items-center justify-center">
               <textarea
                 ref={inputRef}
                 type="text"
@@ -132,6 +137,27 @@ const Chat = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="w-1/4 h-full text-lg bg-blue-100">
+          <p>소방 관련 정보, 이런 건 어때요?</p>
+          <ul>
+            <li
+              onClick={() =>
+                handleButtonClick(
+                  "높은 층에서 화재가 나면 어떻게 대피해야 하나요?"
+                )
+              }
+            >
+              높은 층에서 화재가 나면 어떻게 대피해야 하나요?
+            </li>
+            <li
+              onClick={() =>
+                handleButtonClick("소화전의 위치는 어디에 있나요?")
+              }
+            >
+              소화전의 위치는 어디에 있나요?
+            </li>
+          </ul>
         </div>
       </div>
     </Layout>
