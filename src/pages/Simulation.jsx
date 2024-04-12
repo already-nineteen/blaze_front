@@ -5,10 +5,10 @@ import { useState } from "react";
 
 function SimulationPage() {
   const { unityProvider } = useUnityContext({
-    loaderUrl: "Build/fill_unity.loader.js",
-    dataUrl: "Build/fill_unity.data",
-    frameworkUrl: "Build/fill_unity.framework.js",
-    codeUrl: "Build/fill_unity.wasm",
+    loaderUrl: "Build/blaze_unity.loader.js",
+    dataUrl: "Build/blaze_unity.data",
+    frameworkUrl: "Build/blaze_unity.framework.js",
+    codeUrl: "Build/blaze_unity.wasm",
   });
 
   const [showSimulation, setShowSimulation] = useState(false);
