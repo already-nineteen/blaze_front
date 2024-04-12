@@ -78,8 +78,8 @@ const Chat = () => {
     setInputText("");
     setLoading(true);
 
-    // const chatGPTResponse = await fetchChatGPTResponse(inputText);
-    const chatGPTResponse = "일단 임시지만 넣기.. 돈이 아까운걸";
+    const chatGPTResponse = await fetchChatGPTResponse(inputText);
+    // const chatGPTResponse = "일단 임시지만 넣기.. 돈이 아까운걸";
     const botMessage = { id: Date.now(), text: chatGPTResponse, sender: "bot" };
     setMessages((messages) => [...messages, botMessage]);
     setLoading(false);
@@ -93,7 +93,7 @@ const Chat = () => {
   return (
     <Layout>
       <div className="flex items-center justify-center h-full box-border pt-36 gap-8">
-        <div className="w-1/2 h-full flex flex-col justify-between bg-red-100">
+        <div className="w-1/2 h-full flex flex-col justify-between">
           <div
             className="w-full flex flex-col overflow-y-auto scrollbar-hide"
             style={{ maxHeight: "calc(100vh - 20rem)" }}
@@ -138,10 +138,11 @@ const Chat = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/4 h-full text-lg bg-blue-100">
-          <p>소방 관련 정보, 이런 건 어때요?</p>
-          <ul>
+        <div className="w-1/4 h-full">
+          <p className="text-lg">소방 관련 정보, 이런 건 어때요?</p>
+          <ul className="list-disc text-gray-400 ml-4 leading-loose">
             <li
+              className="mt-2"
               onClick={() =>
                 handleButtonClick(
                   "높은 층에서 화재가 나면 어떻게 대피해야 하나요?"
@@ -150,13 +151,7 @@ const Chat = () => {
             >
               높은 층에서 화재가 나면 어떻게 대피해야 하나요?
             </li>
-            <li
-              onClick={() =>
-                handleButtonClick("소화전의 위치는 어디에 있나요?")
-              }
-            >
-              소화전의 위치는 어디에 있나요?
-            </li>
+            <li>소화전의 위치는 어디에 있나요?</li>
           </ul>
         </div>
       </div>

@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import PretendardLight from '../assets/font/Pretendard-Light.woff';
-import PretendardRegular from '../assets/font/Pretendard-Regular.woff';
-import PretendardMedium from '../assets/font/Pretendard-Medium.woff';
-import PretendardSemiBold from '../assets/font/Pretendard-SemiBold.woff';
+import PretendardLight from "../assets/font/Pretendard-Light.woff";
+import PretendardRegular from "../assets/font/Pretendard-Regular.woff";
+import PretendardMedium from "../assets/font/Pretendard-Medium.woff";
+import PretendardSemiBold from "../assets/font/Pretendard-SemiBold.woff";
 
 export const GlobalStyle = createGlobalStyle`
     html, body {
@@ -77,10 +77,6 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
     }
 
-    ul,
-    li {
-        list-style: none;
-    }
 
     p {
         display: inline-block;
@@ -119,4 +115,4 @@ export const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 }
-`
+`;
