@@ -37,8 +37,8 @@ const QuestionSection = ({
                 onChange={() => handleCheckboxChange(index)}
               />
               <div
-                className={`checkbox-bg bg-gray-100 rounded-full w-full h-full flex items-center justify-center ${
-                  checkedState[index] ? "bg-[#FFE606]" : ""
+                className={`checkbox-bg rounded-full w-full h-full flex items-center justify-center ${
+                  checkedState[index] ? "bg-[#FFE606]" : "bg-gray-100"
                 }`}
               >
                 {checkedState[index] ? (
@@ -53,7 +53,7 @@ const QuestionSection = ({
                 checkedState[index] ? "text-[#FFE606]" : ""
               }`}
             >
-              {option}
+              <span className="cursor-default">{option}</span>
             </label>
           </div>
         ))}
