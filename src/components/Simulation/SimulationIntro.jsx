@@ -5,7 +5,7 @@ const SimulationIntro = ({ onStart }) => {
     <div className="flex items-center justify-center h-full">
       <div className="flex mb-12 space-x-16">
         <div className="flex flex-col mb-8 w-80 space-y-8">
-          <p className="font-bold text-xl mb-24">
+          <p className="font-bold text-xl">
             화재가 일어났을 때의 대처 방법을 <br />
             시뮬레이션하며 익혀 봐요.
           </p>

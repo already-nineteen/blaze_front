@@ -19,7 +19,6 @@ const fetchChatGPTResponse = async (userInput) => {
             content: userInput,
           },
         ],
-        max_tokens: 50,
       },
       {
         headers: {

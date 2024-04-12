@@ -2,7 +2,7 @@ import React from "react";
 
 const QuizIntro = ({ onStart }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-full w-2/5">
+    <div className="flex flex-col items-center justify-center h-full w-[38%]">
       <div className="flex space-x-8 mb-24 h-24">
         <span
           className="flex items-center text-3xl font-semibold px-10"
