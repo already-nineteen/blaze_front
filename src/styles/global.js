@@ -77,7 +77,6 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
     }
 
-
     p {
         display: inline-block;
     }
@@ -105,14 +104,6 @@ export const GlobalStyle = createGlobalStyle`
 
     input:focus {
         outline: none;
-    }
-
-    button {
-        outline: none;
-        border: none;
-        background: none;
-        padding: 0;
-        cursor: pointer;
     }
 }
 `;
